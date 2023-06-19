@@ -57,7 +57,7 @@ class Benchmark:
         except subprocess.CalledProcessError as e:
             print(f'Failed compilation in {self.path}.\n{e}')
             if e.stderr:
-                print(e.stderr, file=sys.stderr)
+                print(e.stderr, file=sys.stdout)
             raise(e)
 
         if self.verbose:
@@ -69,7 +69,7 @@ class Benchmark:
         out = proc.stdout
         if self.verbose:
             print(" ".join(cmd))
-            print(out)
+            #print(out)
         res = re.findall(self.res_regex, out)
         if not res:
             raise Exception(self.path + ":\nno regex match for " + self.res_regex + " in\n" + out)
@@ -164,17 +164,20 @@ def main():
 
     for b in benches:
         try:
-            if args.verbose:
-                print("running: {}".format(b.name))
+            print("running: {}".format(b.name))
 
             if args.warmup:
+                print("Warming up")
                 b.run()
 
             res = []
             for i in range(args.repeat):
+                print("Appending")
                 res.append(str(b.run()))
 
+            print("Joining")
             print(b.name + "," + ", ".join(res), file=outfile)
+            print("End of running: " + b.name)
         except Exception as err:
             print("Error running: ", b.name)
             print(err)

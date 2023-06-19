@@ -3,3 +3,4 @@ minimod-cuda
 aop-sycl
 bn-hip
 jacobi-hip
+fsm-sycl

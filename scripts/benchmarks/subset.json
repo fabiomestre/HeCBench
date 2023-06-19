@@ -78,7 +78,7 @@
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(s\\))"
   ],
   "bezier-surface-sycl": [
-    "(?:device execution time: )([0-9.+-e]+)(?: ms)",
+    "(?:kernel execution time: )([0-9.+-e]+)(?: ms)",
     [
       "-m",
       "10",
@@ -87,7 +87,7 @@
     ]
   ],
   "bilateral-sycl": [
-    "(?:Average kernel execution time \\([1-9]x[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time \\([1-9]x[1-9]\\) )([0-9.+-e]+)(?: \\(ms\\))",
     [
       "1000",
       "1000",
@@ -100,17 +100,20 @@
     "(?:Total binomialOptionsGPU\\(\\) time: )([0-9.+-e]+)(?: msec)"
   ],
   "bitonic-sort-sycl": [
-    "(?:Parallel bitonic time )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Total kernel execution time: )([0-9.+-e]+)(?: \\(ms\\))",
     [
       "22",
       "1"
     ]
   ],
   "bonds-sycl": [
-    "(?:Processing time on GPU: )([0-9.+-e]+)(?: \\(ms\\))"
+    "(?:Average processing time on GPU: )([0-9.+-e]+)(?: \\(ms\\))",
+    [
+	"100"
+    ]
   ],
   "bsearch-sycl": [
-    "(?:Average device execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average kernel execution time \\(bs[1-9]\\) )([0-9.+-e]+)(?: \\(s\\))",
     [
       "16384",
       "1"
@@ -206,7 +209,7 @@
     ]
   ],
   "epistasis-sycl": [
-    "(?:Total offloading time: )([0-9.+-e]+)(?: sec)",
+    "(?:Average kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
     [
       "100",
       "3000",
@@ -243,7 +246,7 @@
   "fsm-sycl": [
     "([0-9.+-e]+)(?:\\s*#runtime \\[s\\])",
     [
-      "10000"
+      "1000"
     ]
   ],
   "gpp-sycl": [
@@ -293,7 +296,7 @@
     ]
   ],
   "mr-sycl": [
-    "(?:Total kernel execution time \\([a-z]+\\) )([0-9.+-e]+)(?: \\(ms\\))"
+    "(?:Total kernel execution time \\(mr32_efficent\\): )([0-9.+-e]+)(?: \\(ms\\))"
   ],
   "murmurhash3-sycl": [
     "(?:Average kernel execution time )([0-9.+-e]+)(?: \\(s\\))",
@@ -397,9 +400,10 @@
     ]
   ],
   "bn-sycl": [
-    "(?:Kernel execution time: )([0-9.+-e]+)(?: \\(s\\))",
+    "(?:Average execution time of genScoreKernel: )([0-9.+-e]+)(?: \\(s\\))",
     [
-      "/dev/null"
+      "/dev/null",
+      "1"
     ]
   ],
   "sheath-sycl": [
